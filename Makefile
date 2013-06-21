@@ -42,9 +42,12 @@ gh-pages/data/costa-rica-topo.json: node_modules build/costa-rica-geo.json
 	@# Uses external properties file to munge in the official canton codes.
 	@# https://github.com/mbostock/topojson/wiki/Command-Line-Reference#external-properties
 	./node_modules/topojson/bin/topojson \
-		-e data/costarica-codes.csv \
+		-e data/gadm-canton-code-mappings.csv \
 		--id-property=+ID_2 \
 		-p code=+code \
 		-q 1e4 \
 		-o gh-pages/data/costa-rica-topo.json: \
 		build/costa-rica-geo.json
+	cd gh-pages && git ci \
+		gh-pages/data/costa-rica-topo.json \
+		-m "Automated commit from make"
