@@ -13,6 +13,12 @@ build:
 		mkdir build; \
 	fi;
 
+gh-pages/index.html: gh-pages index.html
+	cp index.html gh-pages/index.html
+
+gh-pages/og-image.jpg: gh-pages og-image.jpg
+	cp og-image.jpg gh-pages/og-image.jpg
+
 gh-pages/data: gh-pages
 	if [ ! -d gh-pages/data ]; then \
 		mkdir gh-pages/data; \
