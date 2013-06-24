@@ -80,6 +80,6 @@ publish: public
 
 clean:
 	rm -rf build
-	cd gh-pages && git reset --hard
+	cd gh-pages && git reset --hard && git clean -df
 
 .PHONY: publish public clean
