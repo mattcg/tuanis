@@ -64,7 +64,7 @@ gh-pages/index.html: gh-pages index.html
 gh-pages/og-image.png: gh-pages og-image.png
 	cp og-image.png gh-pages/og-image.png
 
-gh-pages/javascript.js: node_modules gh-pages build/costa-rica-topo.json index.js lib/*.js
+gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
 	./node_modules/browserify/bin/cmd.js \
 		./index.js \
 		--outfile gh-pages/javascript.js \
