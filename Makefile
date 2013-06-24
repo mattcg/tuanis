@@ -1,3 +1,5 @@
+public: gh-pages/index.html gh-pages/og-image.png gh-pages/javascript.js
+
 node_modules: package.json
 	npm install
 	touch node_modules
@@ -20,7 +22,7 @@ build/CRI_adm/CRI_adm2.shp: build/CRI_adm.zip
 	touch build/CRI_adm/CRI_adm2.shp
 
 build/costa-rica-geo.json: build/CRI_adm/CRI_adm2.shp
-	[ -f build/costa-rica-geo.json ]; then \
+	if [ -f build/costa-rica-geo.json ]; then \
 		rm build/costa-rica-geo.json; \
 	fi;
 	ogr2ogr -f GeoJSON build/costa-rica-geo.json \
@@ -34,7 +36,7 @@ build/costa-rica-topo.json: node_modules build/costa-rica-geo.json
 		--id-property=+ID_2 \
 		-p code=+code \
 		-q 1e4 \
-		-o build/costa-rica-topo.json: \
+		-o build/costa-rica-topo.json \
 		build/costa-rica-geo.json
 
 gh-pages:
@@ -59,8 +61,8 @@ gh-pages:
 gh-pages/index.html: gh-pages index.html
 	cp index.html gh-pages/index.html
 
-gh-pages/og-image.jpg: gh-pages og-image.jpg
-	cp og-image.jpg gh-pages/og-image.jpg
+gh-pages/og-image.png: gh-pages og-image.png
+	cp og-image.png gh-pages/og-image.png
 
 gh-pages/javascript.js: node_modules gh-pages build/costa-rica-topo.json index.js lib/*.js
 	./node_modules/browserify/bin/cmd.js \
@@ -71,8 +73,6 @@ gh-pages/javascript.js: node_modules gh-pages build/costa-rica-topo.json index.j
 		gh-pages/javascript.js \
 		--compress \
 		--output gh-pages/javascript.js
-
-public: gh-pages/index.html gh-pages/og-image.jpg gh-pages/javascript.js
 
 publish: public
 	cd gh-pages && git add . && git ci \

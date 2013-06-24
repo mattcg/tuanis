@@ -5,7 +5,8 @@
 	"dependencies": {
 		"domready": "0.x",
 		"css3-translate": "0.x",
-		"hammerjs": "1.x"
+		"hammerjs": "1.x",
+		"d3": "3.x"
 	},
 	"devDependencies": {
 		"less": "1.x",
