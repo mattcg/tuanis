@@ -39,7 +39,19 @@ build/costa-rica-topo.json: node_modules build/costa-rica-geo.json
 
 gh-pages:
 	if [ ! -d gh-pages ]; then \
-		git clone git@github.com:mattcg/tuanis.git -b gh-pages gh-pages; \
+		if git ls-remote --heads https://github.com/mattcg/tuanis.git | grep --quiet gh-pages; then \
+			mkdir gh-pages; \
+			cd gh-pages; \
+			git clone git@github.com:mattcg/tuanis.git .; \
+			git checkout --orphan gh-pages; \
+			git rm -rf .; \
+			echo ".DS_Store" > .gitignore; \
+			git add .gitignore; \
+			git ci -m "Initial commit"; \
+			git push --set-upstream origin gh-pages; \
+		else \
+			git clone git@github.com:mattcg/tuanis.git -b gh-pages gh-pages; \
+		fi; \
 	else \
 		cd gh-pages && git pull; \
 	fi;
@@ -50,7 +62,7 @@ gh-pages/index.html: gh-pages index.html
 gh-pages/og-image.jpg: gh-pages og-image.jpg
 	cp og-image.jpg gh-pages/og-image.jpg
 
-gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
+gh-pages/javascript.js: node_modules gh-pages build/costa-rica-topo.json index.js lib/*.js
 	./node_modules/browserify/bin/cmd.js \
 		./index.js \
 		--outfile gh-pages/javascript.js \
@@ -60,9 +72,10 @@ gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
 		--compress \
 		--output gh-pages/javascript.js
 
-publish: gh-pages/index.html gh-pages/og-image.jpg gh-pages/javascript.js
-	cd gh-pages && git ci \
-		-a \
+public: gh-pages/index.html gh-pages/og-image.jpg gh-pages/javascript.js
+
+publish: public
+	cd gh-pages && git add . && git ci \
 		-m "Automated commit from make"
 
-.PHONY: publish
+.PHONY: publish public
