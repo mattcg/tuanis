@@ -78,4 +78,8 @@ publish: public
 	cd gh-pages && git add . && git ci \
 		-m "Automated commit from make"
 
-.PHONY: publish public
+clean:
+	rm -rf build
+	cd gh-pages && git reset --hard
+
+.PHONY: publish public clean
