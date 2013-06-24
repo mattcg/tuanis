@@ -1,7 +1,7 @@
 {
 	"name": "tuanis",
 	"version": "0.0.1",
-	"description": "Un mini-aplicación de estadisticos para Costa Rica.",
+	"description": "Un mini-aplicación de mapas coropléticos para Costa Rica.",
 	"dependencies": {
 		"domready": "0.x",
 		"css3-translate": "0.x",
