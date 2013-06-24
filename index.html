@@ -12,5 +12,22 @@
 		<meta property="og:description" content="Un mini-aplicación de estadisticos para Costa Rica.">
 		<meta property="og:image" content="og-image.jpg">
 	</head>
-	<body></body>
+	<body>
+		<header>
+			<h1>Tuanis</h1>
+			<form id="data-input">
+				<input name="src">
+				<input name="load" type="submit" value="Carga">
+				<label>Seleciona el campo de codigo:
+					<select name="code" disabled></select>
+				</label>
+				<label>Seleciona el campo de estadistico:
+					<select name="stat" disabled></select>
+				</label>
+			</form>
+		</header>
+		<article id="map-container">
+			<svg id="map"></svg>
+		</article>
+	</body>
 </html>

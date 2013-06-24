@@ -7,6 +7,7 @@ gh-pages:
 
 node_modules: package.json
 	npm install
+	touch node_modules
 
 build:
 	if [ ! -d build ]; then \
@@ -18,11 +19,6 @@ gh-pages/index.html: gh-pages index.html
 
 gh-pages/og-image.jpg: gh-pages og-image.jpg
 	cp og-image.jpg gh-pages/og-image.jpg
-
-gh-pages/data: gh-pages
-	if [ ! -d gh-pages/data ]; then \
-		mkdir gh-pages/data; \
-	fi;
 
 build/CRI_adm.zip: build
 	curl http://gadm.org/data/shp/CRI_adm.zip \
@@ -44,7 +40,7 @@ build/costa-rica-geo.json: build/CRI_adm/CRI_adm2.shp
 	ogr2ogr -f GeoJSON build/costa-rica-geo.json \
 		build/CRI_adm/CRI_adm2.shp
 
-gh-pages/data/costa-rica-topo.json: node_modules build/costa-rica-geo.json
+build/costa-rica-topo.json: node_modules build/costa-rica-geo.json
 	@# Uses external properties file to munge in the official canton codes.
 	@# https://github.com/mbostock/topojson/wiki/Command-Line-Reference#external-properties
 	./node_modules/topojson/bin/topojson \
@@ -52,8 +48,13 @@ gh-pages/data/costa-rica-topo.json: node_modules build/costa-rica-geo.json
 		--id-property=+ID_2 \
 		-p code=+code \
 		-q 1e4 \
-		-o gh-pages/data/costa-rica-topo.json: \
+		-o build/costa-rica-topo.json: \
 		build/costa-rica-geo.json
-	cd gh-pages && git ci \
-		gh-pages/data/costa-rica-topo.json \
-		-m "Automated commit from make"
+
+gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
+	./node_modules/browserify/bin/cmd.js \
+		./index.js \
+		--outfile gh-pages/javascript.js \
+		--require ./build/costa-rica-topo.json:costa-rica-topo \
+	#cd gh-pages && git ci javascript.js \
+		#-m "Automated commit of javascript.js from make"

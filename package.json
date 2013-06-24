@@ -1,0 +1,33 @@
+{
+	"name": "tuanis",
+	"version": "0.0.1",
+	"description": "Un mini-aplicación de estadisticos para Costa Rica.",
+	"dependencies": {
+		"domready": "0.x",
+		"css3-translate": "0.x",
+		"hammerjs": "1.x"
+	},
+	"devDependencies": {
+		"less": "1.x",
+		"browserify": "2.x",
+		"uglify-js": "2.x",
+		"topojson": "1.x",
+		"dsv": "0.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/mattcg/tuanis.git"
+	},
+	"contributors": [
+		{
+			"name": "Matthew Caruana Galizia",
+			"email": "m@m.cg"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://mattcg.mit-license.org/"
+		}
+	]
+}
