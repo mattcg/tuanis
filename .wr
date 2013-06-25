@@ -1,0 +1,21 @@
+# Install me with:
+#       $ npm install -g wr
+# Run me with:
+#       $ wr
+
+# Options:
+
+--verbose
+--chime 1
+--stdoutcolor blue
+--stderrcolor magenta
+
+# Command to run:
+
+make
+
+# Directories to watch:
+
+Makefile
+package.json
+lib

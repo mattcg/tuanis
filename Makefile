@@ -1,4 +1,4 @@
-public: gh-pages/index.html gh-pages/og-image.png gh-pages/javascript.js
+public: gh-pages/index.html gh-pages/og-image.png gh-pages/javascript.js gh-pages/style.css gh-pages/favicon.ico
 
 node_modules: package.json
 	npm install
@@ -12,7 +12,6 @@ build:
 build/CRI_adm.zip: build
 	curl http://gadm.org/data/shp/CRI_adm.zip \
 		--output build/CRI_adm.zip \
-		--time-cond build/CRI_adm.zip \
 		--progress-bar \
 		--location
 	touch build/CRI_adm.zip
@@ -58,15 +57,18 @@ gh-pages:
 		cd gh-pages && git pull; \
 	fi;
 
-gh-pages/index.html: gh-pages index.html
-	cp index.html gh-pages/index.html
+gh-pages/index.html: gh-pages lib/html/index.html
+	cp lib/html/index.html gh-pages/index.html
 
-gh-pages/og-image.png: gh-pages og-image.png
-	cp og-image.png gh-pages/og-image.png
+gh-pages/og-image.png: gh-pages lib/img/og-image.png
+	cp lib/img/og-image.png gh-pages/og-image.png
 
-gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
+gh-pages/favicon.ico: gh-pages lib/img/favicon.ico
+	cp lib/img/favicon.ico gh-pages/favicon.ico
+
+gh-pages/javascript.js: gh-pages build/costa-rica-topo.json lib/js/*.js
 	./node_modules/browserify/bin/cmd.js \
-		./index.js \
+		./lib/js/index.js \
 		--outfile gh-pages/javascript.js \
 		--require ./build/costa-rica-topo.json:costa-rica-topo \
 		--require topojson \
@@ -75,6 +77,12 @@ gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
 	#	gh-pages/javascript.js \
 	#	--compress \
 	#	--output gh-pages/javascript.js
+
+gh-pages/style.css: gh-pages lib/less/*.less
+	./node_modules/less/bin/lessc \
+		--compress \
+		lib/less/index.less \
+		gh-pages/style.css
 
 publish: public
 	cd gh-pages && git add . && git ci \

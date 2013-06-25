@@ -11,13 +11,15 @@
 		<meta property="og:title" content="Tuanis">
 		<meta property="og:description" content="Un mini-aplicación de mapas coropléticos para Costa Rica.">
 		<meta property="og:image" content="og-image.jpg">
+		<link href="favicon.ico" rel="icon" type="image/x-icon">
 	</head>
 	<body>
-		<header>
-			<h1>Tuanis</h1>
+		<header id="map-controls">
+			<h1 id="brand">Tuanis.</h1>
 			<form id="data-input">
-				<input name="src">
+				<input name="src" type="text">
 				<input name="load" type="submit" value="Carga">
+				<hr>
 				<label>Seleciona el campo de codigo:
 					<select name="code" disabled></select>
 				</label>
