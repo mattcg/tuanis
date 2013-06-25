@@ -68,11 +68,13 @@ gh-pages/javascript.js: gh-pages build/costa-rica-topo.json index.js lib/*.js
 	./node_modules/browserify/bin/cmd.js \
 		./index.js \
 		--outfile gh-pages/javascript.js \
-		--require ./build/costa-rica-topo.json:costa-rica-topo
-	./node_modules/uglify-js/bin/uglifyjs \
-		gh-pages/javascript.js \
-		--compress \
-		--output gh-pages/javascript.js
+		--require ./build/costa-rica-topo.json:costa-rica-topo \
+		--require topojson \
+		--transform brfs
+	#./node_modules/uglify-js/bin/uglifyjs \
+	#	gh-pages/javascript.js \
+	#	--compress \
+	#	--output gh-pages/javascript.js
 
 publish: public
 	cd gh-pages && git add . && git ci \
