@@ -36,7 +36,8 @@ input[type=submit] {
 }
 
 input[type=button]:disabled,
-input[type=submit]:disabled {
+input[type=submit]:disabled,
+input:invalid ~ input[type=submit] {
 	opacity: 0.8;
 }
 
