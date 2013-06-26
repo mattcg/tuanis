@@ -16,16 +16,19 @@
 	<body>
 		<header id="map-controls">
 			<h1 id="brand">Tuanis.</h1>
-			<form id="data-input">
+			<form id="load-controls">
 				<input name="src" type="text">
 				<input name="load" type="submit" value="Carga">
-				<hr>
+			</form>
+			<hr>
+			<form id="select-controls">
 				<label>Seleciona el campo de codigo:
 					<select name="code" disabled></select>
 				</label>
 				<label>Seleciona el campo de estadistico:
 					<select name="stat" disabled></select>
 				</label>
+				<input name="show" type="submit" value="Mostra" disabled>
 			</form>
 		</header>
 		<article id="map-container">

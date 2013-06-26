@@ -35,6 +35,11 @@ input[type=submit] {
 	.border-radius(5px);
 }
 
+input[type=button]:disabled,
+input[type=submit]:disabled {
+	opacity: 0.8;
+}
+
 input[type=text] {
 	font-size: inherit;
 	border: 1px solid @borderColorDark;
@@ -61,39 +66,41 @@ input[type=text] {
 	width: 100%;
 	height: 100%;
 	position: absolute;
+	overflow: hidden;
 	.border-box();
 }
 
 #map {
 	border-left: 1px solid @borderColorDark;
+	padding: 1em;
 	display: block;
 	width: 100%;
 	height: 100%;
 	.border-box();
 }
 
-#data-input {
+#map-controls form {
 	font-size: 0.8rem;
 }
 
-#data-input input,
-#data-input select,
-#data-input label {
+#map-controls input,
+#map-controls select,
+#map-controls label {
 	display: block;
 }
 
-#data-input label {
+#map-controls label {
 	margin: 1em 0;
 	color: #333;
 }
 
-#data-input input[type=text],
-#data-input select {
+#map-controls input[type=text],
+#map-controls select {
 	width: 100%;
 	.border-box();
 }
 
-#data-input input[type=submit] {
+#map-controls input[type=submit] {
 	margin: 0.5em 0 1em 0;
 }
 
