@@ -11,10 +11,7 @@
 	"devDependencies": {
 		"less": "1.x",
 		"browserify": "2.x",
-		"uglify-js": "2.x",
-		"topojson": "1.x",
-		"brfs": "0.x",
-		"dsv": "0.x"
+		"uglify-js": "2.x"
 	},
 	"repository": {
 		"type": "git",

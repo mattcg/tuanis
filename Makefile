@@ -1,4 +1,4 @@
-public: gh-pages/index.html gh-pages/og-image.png gh-pages/javascript.js gh-pages/style.css gh-pages/favicon.ico
+public: gh-pages/index.html gh-pages/img gh-pages/js/app.js gh-pages/css/app.css gh-pages/svg/costa-rica.svg
 
 node_modules: package.json
 	npm install
@@ -20,27 +20,17 @@ build/CRI_adm/CRI_adm2.shp: build/CRI_adm.zip
 	unzip -u build/CRI_adm.zip CRI_adm2.* -d build/CRI_adm
 	touch build/CRI_adm/CRI_adm2.shp
 
-build/costa-rica-geo.json: build/CRI_adm/CRI_adm2.shp
-	if [ -f build/costa-rica-geo.json ]; then \
-		rm build/costa-rica-geo.json; \
-	fi;
-	ogr2ogr -f GeoJSON build/costa-rica-geo.json \
-		build/CRI_adm/CRI_adm2.shp
-
-build/costa-rica-topo.json: node_modules build/costa-rica-geo.json
-	@# Uses external properties file to munge in the official canton codes.
-	@# https://github.com/mbostock/topojson/wiki/Command-Line-Reference#external-properties
-	./node_modules/topojson/bin/topojson \
-		-e data/gadm-canton-code-mappings.csv \
-		--id-property=+ID_2 \
-		-p code=+code \
-		-q 1e4 \
-		-o build/costa-rica-topo.json \
-		build/costa-rica-geo.json
+build/map.css: build lib/less/map.less
+	./node_modules/less/bin/lessc \
+		--compress \
+		lib/less/map.less \
+		build/map.css
 
 gh-pages:
 	if [ ! -d gh-pages ]; then \
 		if git ls-remote --heads https://github.com/mattcg/tuanis.git | grep --quiet gh-pages; then \
+			git clone git@github.com:mattcg/tuanis.git -b gh-pages gh-pages; \
+		else \
 			mkdir gh-pages; \
 			cd gh-pages; \
 			git clone git@github.com:mattcg/tuanis.git .; \
@@ -50,39 +40,54 @@ gh-pages:
 			git add .gitignore; \
 			git ci -m "Initial commit"; \
 			git push --set-upstream origin gh-pages; \
-		else \
-			git clone git@github.com:mattcg/tuanis.git -b gh-pages gh-pages; \
 		fi; \
 	else \
 		cd gh-pages && git pull; \
 	fi;
 
-gh-pages/index.html: gh-pages lib/html/index.html
-	cp lib/html/index.html gh-pages/index.html
+gh-pages/index.html: gh-pages lib/html/app.html
+	cp lib/html/app.html gh-pages/index.html
 
-gh-pages/og-image.png: gh-pages lib/img/og-image.png
-	cp lib/img/og-image.png gh-pages/og-image.png
+gh-pages/img: gh-pages lib/img/*
+	if [ ! -d gh-pages/img ]; then \
+		mkdir gh-pages/img; \
+	fi;
+	cp lib/img/* gh-pages/img/
 
-gh-pages/favicon.ico: gh-pages lib/img/favicon.ico
-	cp lib/img/favicon.ico gh-pages/favicon.ico
+gh-pages/svg: gh-pages
+	if [ ! -d gh-pages/svg ]; then \
+		mkdir gh-pages/svg; \
+	fi;
 
-gh-pages/javascript.js: gh-pages build/costa-rica-topo.json lib/js/*.js
+gh-pages/svg/costa-rica.svg: build/CRI_adm/CRI_adm2.shp gh-pages/svg build/map.css kartograph.json
+	kartograph kartograph.json \
+		--style build/map.css \
+		--output gh-pages/svg/costa-rica.svg
+
+gh-pages/js: gh-pages
+	if [ ! -d gh-pages/js ]; then \
+		mkdir gh-pages/js; \
+	fi;
+
+gh-pages/js/app.js: gh-pages/js lib/js/*
 	./node_modules/browserify/bin/cmd.js \
-		./lib/js/index.js \
-		--outfile gh-pages/javascript.js \
-		--require ./build/costa-rica-topo.json:costa-rica-topo \
-		--require topojson \
-		--transform brfs
+		./lib/js/app.js \
+		--outfile gh-pages/js/app.js
 	#./node_modules/uglify-js/bin/uglifyjs \
-	#	gh-pages/javascript.js \
+	#	gh-pages/js/app.js \
 	#	--compress \
-	#	--output gh-pages/javascript.js
+	#	--output gh-pages/js/app.js
 
-gh-pages/style.css: gh-pages lib/less/*.less
+gh-pages/css: gh-pages
+	if [ ! -d gh-pages/css ]; then \
+		mkdir gh-pages/css; \
+	fi;
+
+gh-pages/css/app.css: gh-pages/css lib/less/*.less
 	./node_modules/less/bin/lessc \
 		--compress \
-		lib/less/index.less \
-		gh-pages/style.css
+		lib/less/app.less \
+		gh-pages/css/app.css
 
 publish: public
 	cd gh-pages && git add . && git ci \

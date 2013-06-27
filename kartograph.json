@@ -1,0 +1,19 @@
+{
+	"layers": {
+		"cantons": {
+			"src": "build/CRI_adm/CRI_adm2.shp",
+			"simplify": 3,
+			"charset": "latin-1",
+			"attributes": {
+				"id": "ID_2"
+			}
+		}
+	},
+	"bounds": {
+		"mode": "polygons",
+		"data": {
+			"layer": "cantons",
+			"min-area": 0.2
+		}
+	}
+}
