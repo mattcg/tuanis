@@ -7,6 +7,8 @@ node_modules: package.json
 build:
 	if [ ! -d build ]; then \
 		mkdir build; \
+	else \
+		touch build; \
 	fi;
 
 build/CRI_adm.zip: build
@@ -51,12 +53,16 @@ gh-pages/index.html: gh-pages lib/html/app.html
 gh-pages/img: gh-pages lib/img/*
 	if [ ! -d gh-pages/img ]; then \
 		mkdir gh-pages/img; \
+	else \
+		touch gh-pages/img; \
 	fi;
 	cp lib/img/* gh-pages/img/
 
 gh-pages/svg: gh-pages
 	if [ ! -d gh-pages/svg ]; then \
 		mkdir gh-pages/svg; \
+	else \
+		touch gh-pages/svg; \
 	fi;
 
 gh-pages/svg/costa-rica.svg: build/CRI_adm/CRI_adm2.shp gh-pages/svg build/map.css kartograph.json
@@ -67,6 +73,8 @@ gh-pages/svg/costa-rica.svg: build/CRI_adm/CRI_adm2.shp gh-pages/svg build/map.c
 gh-pages/js: gh-pages
 	if [ ! -d gh-pages/js ]; then \
 		mkdir gh-pages/js; \
+	else \
+		touch gh-pages/js; \
 	fi;
 
 gh-pages/js/app.js: gh-pages/js lib/js/*
@@ -81,6 +89,8 @@ gh-pages/js/app.js: gh-pages/js lib/js/*
 gh-pages/css: gh-pages
 	if [ ! -d gh-pages/css ]; then \
 		mkdir gh-pages/css; \
+	else \
+		touch gh-pages/css; \
 	fi;
 
 gh-pages/css/app.css: gh-pages/css lib/less/*.less
