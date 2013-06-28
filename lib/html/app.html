@@ -16,7 +16,13 @@
 	<body>
 		<header id="map-controls">
 			<h1 id="brand">Tuanis.</h1>
-			<h2 id="credit">Por <a href="https://twitter.com/mcaruanagalizia">@mcaruanagalizia</a>.</h2>
+			<p id="credit">Por <a href="https://twitter.com/mcaruanagalizia">@mcaruanagalizia</a>. <a href="https://github.com/mattcg/tuanis">Código en GitHub</a>.</p>
+			<nav>
+				<ul>
+					<li><a href="#como">¿Cómo?</a></li>
+					<li><a href="#como">Embed</a></li>
+				</ul>
+			</nav>
 			<form id="load-controls">
 				<input name="src" type="url" required>
 				<input name="load" type="submit" value="Carga">
@@ -88,6 +94,17 @@
 					<label><input type="radio" name="brewer" value="Pastel1"> Pastel1</label>
 				</fieldset>
 			</form>
+			<h2><a name="como">¿Cómo?</a></h2>
+			<p>Todo lo que necesitas hacer es esto.</p>
+			<ul>
+				<li>Crear un spreadsheet usando <a href="http://spreadsheets.google.com/">Google Spreadsheets</a>.</li>
+				<li>Abra el menú "Archivo" y haga clic en "Publicar en Web".</li>
+				<li>Haga clic en "Inicio de la publicación".</li>
+			</ul>
+			<h2>Colores</h2>
+			<p>Los conjuntos de colores provienen de la sistema <a href="http://colorbrewer2.org/">Colorbrewer</a>.</p>
+			<h2><a name="embed">Embed</a></h2>
+			<pre id="embed"></pre>
 		</header>
 		<article id="map-container">
 			<object type="image/svg+xml" data="svg/costa-rica.svg" id="map"></object>
