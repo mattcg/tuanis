@@ -30,6 +30,62 @@
 				</label>
 				<input name="show" type="submit" value="Mostra" disabled>
 			</form>
+			<form id="scale-controls">
+				<label>Clases de datos:
+					<input type="range" name="stops" min="3" max="12">
+				</label>
+				<label>Tipo de escala:
+					<select name="type">
+						<option value="linear">linear</option>
+						<option value="log">log</option>
+						<option value="quantiles">quantiles</option>
+						<option value="k-means">k-means</option>
+					</select>
+				</label>
+				<fieldset>
+					<legend>Secuencial</legend>
+					<label><input type="radio" name="brewer" value="OrRd"> OrRd</label>
+					<label><input type="radio" name="brewer" value="PuBu"> PuBu</label>
+					<label><input type="radio" name="brewer" value="BuPu"> BuPu</label>
+					<label><input type="radio" name="brewer" value="Oranges"> Oranges</label>
+					<label><input type="radio" name="brewer" value="BuGn"> BuGn</label>
+					<label><input type="radio" name="brewer" value="YlOrBr"> YlOrBr</label>
+					<label><input type="radio" name="brewer" value="YlGn"> YlGn</label>
+					<label><input type="radio" name="brewer" value="Reds"> Reds</label>
+					<label><input type="radio" name="brewer" value="RdPu"> RdPu</label>
+					<label><input type="radio" name="brewer" value="Greens"> Greens</label>
+					<label><input type="radio" name="brewer" value="YlGnBu"> YlGnBu</label>
+					<label><input type="radio" name="brewer" value="Purples"> Purples</label>
+					<label><input type="radio" name="brewer" value="GnBu"> GnBu</label>
+					<label><input type="radio" name="brewer" value="Greys"> Greys</label>
+					<label><input type="radio" name="brewer" value="YlOrRd"> YlOrRd</label>
+					<label><input type="radio" name="brewer" value="Blues"> Blues</label>
+					<label><input type="radio" name="brewer" value="PuBuGn"> PuBuGn</label>
+				</fieldset>
+				<fieldset>
+					<legend>Divergente</legend>
+					<label><input type="radio" name="brewer" value="Spectral"> Spectral</label>
+					<label><input type="radio" name="brewer" value="RdYlGn"> RdYlGn</label>
+					<label><input type="radio" name="brewer" value="RdBu"> RdBu</label>
+					<label><input type="radio" name="brewer" value="PiYG"> PiYG</label>
+					<label><input type="radio" name="brewer" value="PRGn"> PRGn</label>
+					<label><input type="radio" name="brewer" value="RdYlBu"> RdYlBu</label>
+					<label><input type="radio" name="brewer" value="BrBG"> BrBG</label>
+					<label><input type="radio" name="brewer" value="RdGy"> RdGy</label>
+					<label><input type="radio" name="brewer" value="PuOr"> PuOr</label>
+				</fieldset>
+				<fieldset>
+					<legend>Cualitativo</legend>
+					<label><input type="radio" name="brewer" value="Set2"> Set2</label>
+					<label><input type="radio" name="brewer" value="Accent"> Accent</label>
+					<label><input type="radio" name="brewer" value="Set1"> Set1</label>
+					<label><input type="radio" name="brewer" value="Set3"> Set3</label>
+					<label><input type="radio" name="brewer" value="Dark2"> Dark2</label>
+					<label><input type="radio" name="brewer" value="Paired"> Paired</label>
+					<label><input type="radio" name="brewer" value="Pastel2"> Pastel2</label>
+					<label><input type="radio" name="brewer" value="Pastel1"> Pastel1</label>
+				</fieldset>
+			</form>
 		</header>
 		<article id="map-container">
 			<object type="image/svg+xml" data="svg/costa-rica.svg" id="map"></object>
