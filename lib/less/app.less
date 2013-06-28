@@ -48,6 +48,10 @@ input[type=url] {
 	box-shadow: inset 0 1px 2px #e4e4e4;
 }
 
+fieldset {
+	border: 1px solid @borderColorDark;
+}
+
 #brand {
 	text-transform: uppercase;
 	font-weight: 200;
@@ -60,6 +64,7 @@ input[type=url] {
 	border-right: 4px solid @borderColor;
 	padding: 0 1em;
 	z-index: 1;
+	overflow: auto;
 	.border-box();
 }
 
@@ -91,7 +96,12 @@ input[type=url] {
 	display: block;
 }
 
-#map-controls label {
+#map-controls input[type=radio] {
+	display: inline;
+}
+
+#map-controls label,
+#map-controls fieldset {
 	margin: 1em 0;
 	color: #333;
 }
