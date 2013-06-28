@@ -1,3 +1,4 @@
+@buttonColor: #3d6aa2;
 @borderColor: #f6f6f6;
 @borderColorDark: #c0c0c0;
 @controlsWidth: 15rem;
@@ -14,8 +15,16 @@ select {
 	-webkit-font-smoothing: antialiased;
 }
 
-h1 {
+a {
+	color: @buttonColor;
+}
+
+h1,
+h2 {
 	font-family: 'Helvetica Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
 	font-size: 2rem;
 }
 
@@ -28,7 +37,7 @@ hr {
 input[type=button],
 input[type=submit] {
 	font-size: inherit;
-	background: #3d6aa2;
+	background: @buttonColor;
 	color: white;
 	border: none;
 	cursor: pointer;
@@ -55,6 +64,13 @@ fieldset {
 #brand {
 	text-transform: uppercase;
 	font-weight: 200;
+	margin-bottom: 0;
+}
+
+#credit {
+	font-size: 0.8rem;
+	margin: 0 0 1em 0;
+	font-weight: normal;
 }
 
 #map-controls {
