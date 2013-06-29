@@ -1,0 +1,34 @@
+body{margin:0}
+body,input,select{font-family:Helvetica,Arial,sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+a[href]{color:#3d6aa2;text-decoration:none}
+h1,h2{font-family:'Helvetica Neue','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:200;text-transform:uppercase}
+h1{font-size:2rem}
+p,li{font-size:.9rem}
+li+li{margin-top:.8em}
+ul{padding-left:1em}
+hr{border-color:#f6f6f6;border-style:solid none none none;border-width:1px}
+pre{white-space:pre-wrap;border:1px solid #c0c0c0;word-break:break-word;padding:.2em}
+input[type=button],input[type=submit]{font-size:inherit;background:#3d6aa2;color:#fff;border:none;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
+input[type=button]:disabled,input[type=submit]:disabled,input:invalid~input[type=submit]{opacity:.8}
+input[type=text],input[type=url]{font-size:inherit;border:1px solid #c0c0c0;box-shadow:inset 0 1px 2px #e4e4e4}
+fieldset{border:1px solid #c0c0c0}
+nav{font-size:.8rem;margin:1em 0}
+nav ul{padding:0;margin:0;list-style:none}
+nav li{font-size:.8rem;display:inline;margin:0 .4em 0 0}
+nav li+li:before{content:'•';padding-right:.4em}
+#brand{margin-bottom:0}
+#credit{font-size:.8rem;margin:0 0 1em 0;font-weight:normal}
+#map-controls{display:none;width:15rem;height:100%;position:absolute;border-right:4px solid #f6f6f6;padding:0 1em;z-index:1;overflow:auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+body.controls #map-controls{display:block}
+#map-container{width:100%;height:100%;position:absolute;overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+body.controls #map-container{padding-left:15rem}
+#map{padding:1em;display:block;width:100%;height:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+body.controls #map{border-left:1px solid #c0c0c0}
+#map-controls form{font-size:.8rem}
+#map-controls input,#map-controls select,#map-controls label{display:block}
+#map-controls input[type=radio]{display:inline}
+#map-controls label,#map-controls fieldset{margin:1em 0;color:#333}
+#map-controls input[type=text],#map-controls input[type=url],#map-controls input[type=range],#map-controls select{width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+#map-controls input[type=submit]{margin:.5em 0 1em 0}
+#map-controls .brewer{margin-top:.2em}
+#map-controls .brewer .swatch{display:inline-block;width:1em;height:1em}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Tuanis.</title> 
+		<link rel="stylesheet" href="css/app.css">
+		<script src="js/app.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="description" content="Un mini-aplicación de mapas coropléticos para Costa Rica.">
+		<meta name="keywords" content="GIS, Costa Rica, mapa, estadisticos">
+		<meta property="og:title" content="Tuanis">
+		<meta property="og:description" content="Un mini-aplicación de mapas coropléticos para Costa Rica.">
+		<meta property="og:image" content="img/og-image.jpg">
+		<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+	</head>
+	<body>
+		<header id="map-controls">
+			<h1 id="brand">Tuanis.</h1>
+			<p id="credit">Por <a href="https://twitter.com/mcaruanagalizia">@mcaruanagalizia</a>. <a href="https://github.com/mattcg/tuanis">Código en GitHub</a>.</p>
+			<nav>
+				<ul>
+					<li><a href="#como">¿Cómo?</a></li><li><a href="#embed">Embed</a></li><li><a href="#ejemplos">Ejemplos</a></li>
+				</ul>
+			</nav>
+			<form id="load-controls">
+				<input name="src" type="url" required>
+				<input name="load" type="submit" value="Carga">
+			</form>
+			<hr>
+			<form id="select-controls">
+				<label>Campo de código:
+					<select name="code" disabled></select>
+				</label>
+				<label>Campo de estadística:
+					<select name="stat" disabled></select>
+				</label>
+				<input name="show" type="submit" value="Mostra" disabled>
+			</form>
+			<hr>
+			<form id="scale-controls">
+				<label>Clases de datos:
+					<input type="range" name="stops" min="3" max="12">
+				</label>
+				<label>Tipo de escala:
+					<select name="type">
+						<option value="linear">lineal</option>
+						<option value="log">logarítmica</option>
+						<option value="quantiles">cuantiles</option>
+						<option value="k-means">k-means</option>
+					</select>
+				</label>
+				<fieldset>
+					<legend>Secuencial</legend>
+					<label><input type="radio" name="brewer" value="OrRd" checked> OrRd</label>
+					<label><input type="radio" name="brewer" value="PuBu"> PuBu</label>
+					<label><input type="radio" name="brewer" value="BuPu"> BuPu</label>
+					<label><input type="radio" name="brewer" value="Oranges"> Oranges</label>
+					<label><input type="radio" name="brewer" value="BuGn"> BuGn</label>
+					<label><input type="radio" name="brewer" value="YlOrBr"> YlOrBr</label>
+					<label><input type="radio" name="brewer" value="YlGn"> YlGn</label>
+					<label><input type="radio" name="brewer" value="Reds"> Reds</label>
+					<label><input type="radio" name="brewer" value="RdPu"> RdPu</label>
+					<label><input type="radio" name="brewer" value="Greens"> Greens</label>
+					<label><input type="radio" name="brewer" value="YlGnBu"> YlGnBu</label>
+					<label><input type="radio" name="brewer" value="Purples"> Purples</label>
+					<label><input type="radio" name="brewer" value="GnBu"> GnBu</label>
+					<label><input type="radio" name="brewer" value="Greys"> Greys</label>
+					<label><input type="radio" name="brewer" value="YlOrRd"> YlOrRd</label>
+					<label><input type="radio" name="brewer" value="Blues"> Blues</label>
+					<label><input type="radio" name="brewer" value="PuBuGn"> PuBuGn</label>
+				</fieldset>
+				<fieldset>
+					<legend>Divergente</legend>
+					<label><input type="radio" name="brewer" value="Spectral"> Spectral</label>
+					<label><input type="radio" name="brewer" value="RdYlGn"> RdYlGn</label>
+					<label><input type="radio" name="brewer" value="RdBu"> RdBu</label>
+					<label><input type="radio" name="brewer" value="PiYG"> PiYG</label>
+					<label><input type="radio" name="brewer" value="PRGn"> PRGn</label>
+					<label><input type="radio" name="brewer" value="RdYlBu"> RdYlBu</label>
+					<label><input type="radio" name="brewer" value="BrBG"> BrBG</label>
+					<label><input type="radio" name="brewer" value="RdGy"> RdGy</label>
+					<label><input type="radio" name="brewer" value="PuOr"> PuOr</label>
+				</fieldset>
+				<fieldset>
+					<legend>Cualitativo</legend>
+					<label><input type="radio" name="brewer" value="Set2"> Set2</label>
+					<label><input type="radio" name="brewer" value="Accent"> Accent</label>
+					<label><input type="radio" name="brewer" value="Set1"> Set1</label>
+					<label><input type="radio" name="brewer" value="Set3"> Set3</label>
+					<label><input type="radio" name="brewer" value="Dark2"> Dark2</label>
+					<label><input type="radio" name="brewer" value="Paired"> Paired</label>
+					<label><input type="radio" name="brewer" value="Pastel2"> Pastel2</label>
+					<label><input type="radio" name="brewer" value="Pastel1"> Pastel1</label>
+				</fieldset>
+			</form>
+			<h2><a name="como">¿Cómo?</a></h2>
+			<p>Todo lo que necesitas hacer es esto.</p>
+			<ul>
+				<li>Crear un spreadsheet usando <a href="http://spreadsheets.google.com/">Google Spreadsheets</a>.</li>
+				<li>Abra el menú "Archivo" y haga clic en "Publicar en Web".</li>
+				<li>Haga clic en "Inicio de la publicación".</li>
+			</ul>
+			<h2>Colores</h2>
+			<p>Los conjuntos de colores provienen de la sistema <a href="http://colorbrewer2.org/">Colorbrewer</a>.</p>
+			<h2><a name="embed">Embed</a></h2>
+			<pre id="embed"></pre>
+			<h2><a name="ejemplos">Ejemplos</a></h2>
+			<ul>
+				<li><a href="?id=0Ajm-SImXl8LzdE9VdEZVUVNfRDdXM1ZLNTJBdDY0Ync&code=id&stat=tieneprogramasdereciclajealmenos1vezalmes&brewer=Accent&stops=5&type=linear">Cantones que tienen programa de reciclaje</a></li>
+				<li><a href="?id=0Ajm-SImXl8LzdE9VdEZVUVNfRDdXM1ZLNTJBdDY0Ync&code=id&stat=totaltoneladasderesiduospormes&brewer=OrRd&stops=5&type=quantiles">Toneladas de residuos por mes</a></li>
+			</ul>
+		</header>
+		<article id="map-container">
+			<object type="image/svg+xml" data="svg/costa-rica.svg" id="map"></object>
+		</article>
+	</body>
+</html>
