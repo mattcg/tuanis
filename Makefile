@@ -22,7 +22,7 @@ build/CRI_adm/CRI_adm2.shp: build/CRI_adm.zip
 	unzip -u build/CRI_adm.zip CRI_adm2.* -d build/CRI_adm
 	touch build/CRI_adm/CRI_adm2.shp
 
-build/map.css: build lib/less/map.less
+build/map.css: node_modules build lib/less/map.less
 	./node_modules/less/bin/lessc \
 		--compress \
 		lib/less/map.less \
@@ -77,7 +77,7 @@ gh-pages/js: gh-pages
 		touch gh-pages/js; \
 	fi;
 
-gh-pages/js/app.js: gh-pages/js lib/js/*
+gh-pages/js/app.js: node_modules gh-pages/js lib/js/*
 	./node_modules/browserify/bin/cmd.js \
 		./lib/js/app.js \
 		--outfile gh-pages/js/app.js
@@ -93,7 +93,7 @@ gh-pages/css: gh-pages
 		touch gh-pages/css; \
 	fi;
 
-gh-pages/css/app.css: gh-pages/css lib/less/*.less
+gh-pages/css/app.css: node_modules gh-pages/css lib/less/*.less
 	./node_modules/less/bin/lessc \
 		--compress \
 		lib/less/app.less \
