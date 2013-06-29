@@ -4,8 +4,7 @@
 	"description": "Un mini-aplicación de mapas coropléticos para Costa Rica.",
 	"dependencies": {
 		"chroma-js": "0.x",
-		"domready": "0.x",
-		"d3": "3.x"
+		"domready": "0.x"
 	},
 	"devDependencies": {
 		"less": "1.x",
