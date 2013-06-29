@@ -81,10 +81,6 @@ gh-pages/js/app.js: node_modules gh-pages/js lib/js/*
 	./node_modules/browserify/bin/cmd.js \
 		./lib/js/app.js \
 		--outfile gh-pages/js/app.js
-	#./node_modules/uglify-js/bin/uglifyjs \
-	#	gh-pages/js/app.js \
-	#	--compress \
-	#	--output gh-pages/js/app.js
 
 gh-pages/css: gh-pages
 	if [ ! -d gh-pages/css ]; then \
@@ -100,6 +96,10 @@ gh-pages/css/app.css: node_modules gh-pages/css lib/less/*.less
 		gh-pages/css/app.css
 
 publish: public
+	./node_modules/uglify-js/bin/uglifyjs \
+		gh-pages/js/app.js \
+		--compress \
+		--output gh-pages/js/app.js
 	cd gh-pages && git add . && \
 	git ci \
 		-m "Automated commit from make" && \
