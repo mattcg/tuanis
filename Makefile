@@ -100,8 +100,10 @@ gh-pages/css/app.css: gh-pages/css lib/less/*.less
 		gh-pages/css/app.css
 
 publish: public
-	cd gh-pages && git add . && git ci \
-		-m "Automated commit from make"
+	cd gh-pages && git add . && \
+	git ci \
+		-m "Automated commit from make" && \
+	git push
 
 clean:
 	rm -rf build
