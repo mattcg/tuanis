@@ -5,7 +5,7 @@ h1,h2{font-family:'Helvetica Neue','Helvetica Neue',Helvetica,Arial,sans-serif;f
 h1{font-size:2rem}
 p,li{font-size:.9rem}
 li+li{margin-top:.8em}
-ul{padding-left:1em}
+ul,ol{padding-left:1em}
 hr{border-color:#f6f6f6;border-style:solid none none none;border-width:1px}
 pre{white-space:pre-wrap;border:1px solid #c0c0c0;word-break:break-word;padding:.2em}
 input[type=button],input[type=submit]{font-size:inherit;background:#3d6aa2;color:#fff;border:none;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}

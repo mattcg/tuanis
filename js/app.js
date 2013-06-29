@@ -510,6 +510,10 @@ exports.clear = function() {
 
 var Sheet = require('./sheet/Sheet');
 
+exports.url = function(id) {
+	return 'https://docs.google.com/spreadsheet/ccc?key=' + id;
+};
+
 exports.load = function(src, cb) {
 	var match, id, xhr;
 
@@ -662,7 +666,11 @@ function popstate(event) {
 
 	// Update the form controls with values from URL.
 	controls.scale(params);
-	controls.source(params.id);
+	if (params.id) {
+		controls.source(sheet.url(params.id));
+	} else {
+		controls.source('');
+	}
 
 	// Load the ID in the URL if available.
 	if (!params.id) {
