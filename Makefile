@@ -96,16 +96,16 @@ gh-pages/css/app.css: node_modules gh-pages/css lib/less/*.less
 		gh-pages/css/app.css
 
 publish: public
-	mv gh-pages/js/app.js gh-pages/js/app.original.js
+	mv gh-pages/js/app.js build/app.original.js
 	./node_modules/uglify-js/bin/uglifyjs \
-		gh-pages/js/app.original.js \
+		build/app.original.js \
 		--compress \
 		--output gh-pages/js/app.js
-	cd gh-pages && git add . && \
+	cd gh-pages && git add . --all && \
 	git ci \
 		-m "Automated commit from make" && \
 	git push
-	mv gh-pages/js/app.original.js gh-pages/js/app.js
+	mv build/app.original.js gh-pages/js/app.js
 
 clean:
 	rm -rf build
