@@ -9,7 +9,9 @@
 	"devDependencies": {
 		"less": "1.x",
 		"browserify": "2.x",
-		"uglify-js": "2.x"
+		"uglify-js": "2.x",
+		"jsdom": "0.x",
+		"iconv": "2.x"
 	},
 	"repository": {
 		"type": "git",
