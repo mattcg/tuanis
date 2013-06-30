@@ -17,7 +17,7 @@ nav ul{padding:0;margin:0;list-style:none}
 nav li{font-size:.8rem;display:inline;margin:0 .4em 0 0}
 nav li+li:before{content:'•';padding-right:.4em}
 #brand{margin-bottom:0}
-#credit{font-size:.8rem;margin:0 0 1em 0;font-weight:normal}
+p.meta{font-size:.8rem;margin:1em 0;font-weight:normal}
 #map-controls{display:none;width:15rem;height:100%;position:absolute;border-right:4px solid #f6f6f6;padding:0 1em;z-index:1;overflow:auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
 body.controls #map-controls{display:block}
 #map-container{width:100%;height:100%;position:absolute;overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
@@ -32,3 +32,6 @@ body.controls #map{border-left:1px solid #c0c0c0}
 #map-controls input[type=submit]{margin:.5em 0 1em 0}
 #map-controls .brewer{margin-top:.2em}
 #map-controls .brewer .swatch{display:inline-block;width:1em;height:1em}
+#map-tip{position:absolute;background:#fff;padding:0 1em;z-index:1;border:1px solid #c0c0c0}
+#map-tip>h1{font-size:1rem}
+#map-tip>p{font-weight:bold}
