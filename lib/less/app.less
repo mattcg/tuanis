@@ -54,7 +54,8 @@ hr {
 pre {
 	white-space: pre-wrap;
 	border: 1px solid @borderColorDark;
-	word-break: break-word;
+	overflow-wrap: break-word; /* Standard */
+	word-wrap: break-word; /* Deprecated */
 	padding: 0.2em;
 }
 
