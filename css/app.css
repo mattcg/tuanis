@@ -7,7 +7,7 @@ p,li{font-size:.9rem}
 li+li{margin-top:.8em}
 ul,ol{padding-left:1em}
 hr{border-color:#f6f6f6;border-style:solid none none none;border-width:1px}
-pre{white-space:pre-wrap;border:1px solid #c0c0c0;word-break:break-word;padding:.2em}
+pre{white-space:pre-wrap;border:1px solid #c0c0c0;overflow-wrap:break-word;word-wrap:break-word;padding:.2em}
 input[type=button],input[type=submit]{font-size:inherit;background:#3d6aa2;color:#fff;border:none;cursor:pointer;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px}
 input[type=button]:disabled,input[type=submit]:disabled,input:invalid~input[type=submit]{opacity:.8}
 input[type=text],input[type=url]{font-size:inherit;border:1px solid #c0c0c0;box-shadow:inset 0 1px 2px #e4e4e4}
