@@ -28,7 +28,8 @@ body.controls #map{border-left:1px solid #c0c0c0}
 #map-controls input,#map-controls select,#map-controls label{display:block}
 #map-controls input[type=radio]{display:inline}
 #map-controls label,#map-controls fieldset{margin:1em 0;color:#333}
-#map-controls input[type=text],#map-controls input[type=url],#map-controls input[type=range],#map-controls select{width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+#map-controls input[type=text],#map-controls input[type=url],#map-controls input[type=range],#map-controls select{width:100%}
+#map-controls input[type=text],#map-controls input[type=url],#map-controls select{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
 #map-controls input[type=submit]{margin:.5em 0 1em 0}
 #map-controls .brewer{margin-top:.2em}
 #map-controls .brewer .swatch{display:inline-block;width:1em;height:1em}
