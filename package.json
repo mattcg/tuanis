@@ -1,6 +1,6 @@
 {
 	"name": "tuanis",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
 	"description": "Un mini-aplicación de mapas coropléticos de Costa Rica.",
 	"dependencies": {
