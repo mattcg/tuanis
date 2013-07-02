@@ -1,7 +1,7 @@
 body{margin:0}
 body,input,select{font-family:Helvetica,Arial,sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 a[href]{color:#3d6aa2;text-decoration:none}
-h1,h2{font-family:'Helvetica Neue','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:200;text-transform:uppercase}
+h1,h2{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:200;text-transform:uppercase}
 h1{font-size:2rem}
 p,li{font-size:.9rem}
 li+li{margin-top:.8em}
