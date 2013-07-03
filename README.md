@@ -1,6 +1,6 @@
 # Tuanis. #
 
-[Explanation in English: platform for making choropleth maps of Costa Rica](http://m.cg/post/54467212396/automating-choropleth-mapmaking-in-the-newsroom)
+Explanation in English: [platform for making choropleth maps of Costa Rica](http://m.cg/post/54467212396/automating-choropleth-mapmaking-in-the-newsroom).
 
 Un mini-aplicación de mapas coropléticos para Costa Rica.
 
